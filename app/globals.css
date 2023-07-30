@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --wave-background-color: rgba(250, 250, 250, 0.7);
+    --wave-hover-background-color: rgba(255, 199, 108, 0.527);
+    --wave-active-background-color: rgba(255, 199, 108, 0.8);
+    --wave-region-content-color: #161f27 !important;
+    --wave-region-handle-color: #afc5ff;
+    --wave-timeline-color: #161f27 !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,15 +19,55 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --wave-background-color: rgba(0, 172, 255, 0.2);
+      --wave-hover-background-color: rgba(0, 170, 255, 0.527);
+      --wave-active-background-color: rgba(0, 195, 255, 0.844);
+      --wave-region-content-color: #e3efff !important;
+      --wave-region-handle-color: rgb(255, 152, 0);
+      --wave-timeline-color: #fff;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
+    to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+#waveform ::part(region) {
+  background-color: var(--wave-background-color);
+}
+
+#waveform ::part(region):hover {
+  background-color: var(--wave-hover-background-color);
+}
+
+#waveform ::part(region):active {
+  background-color: var(--wave-active-background-color);
+}
+
+#waveform ::part(region-content) {
+  color: var(--wave-region-content-color);
+  margin-top: 0px;
+  white-space: break-spaces;
+}
+
+#waveform ::part(region-handle-left) {
+  background-color: var(--wave-region-handle-color);
+}
+
+#waveform ::part(region-handle-right) {
+  background-color: var(--wave-region-handle-color);
+}
+
+#waveform ::part(timeline) {
+  color: var(--wave-timeline-color);
+}
+
+#waveCutform ::part(timeline) {
+  color: var(--wave-timeline-color);
 }
