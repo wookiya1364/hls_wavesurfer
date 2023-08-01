@@ -3,5 +3,6 @@ import { atom } from "jotai";
 
 const subtitleAtom = atom([]);
 const playerAtom = atom(new UtilityPlayer());
+const playerButtonAtom = atom(false);
 
-export { subtitleAtom, playerAtom };
+export { subtitleAtom, playerAtom, playerButtonAtom };

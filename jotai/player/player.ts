@@ -1,15 +1,32 @@
 import { atom } from "jotai";
-import { playerAtom } from "../storage";
+import { playerAtom, playerButtonAtom } from "../storage";
 
-export const readOnly_PlayerAtom = atom(get => get(playerAtom));
+const readOnly_PlayerAtom = atom(get => get(playerAtom));
 
-export const writeOnly_PlayerAtom = atom(null, (get, set, subtitle: any) => {
-  set(playerAtom, subtitle);
+const writeOnly_PlayerAtom = atom(null, (get, set, player: any) => {
+  set(playerAtom, player);
 });
 
-export const readWrite_PlayerAtom = atom(
+const readWrite_PlayerAtom = atom(
   get => get(playerAtom),
-  (get, set, subtitle: any) => {
-    set(playerAtom, subtitle);
+  (get, set, player: any) => {
+    set(playerAtom, player);
   }
 );
+
+const readOnly_PlayerButtonAtom = atom(get => get(playerButtonAtom));
+
+const readWrite_PlayerButtonAtom = atom(
+  get => get(playerButtonAtom),
+  (get, set, buttonStatus: boolean) => {
+    set(playerButtonAtom, buttonStatus);
+  }
+);
+
+export {
+  readOnly_PlayerAtom,
+  writeOnly_PlayerAtom,
+  readWrite_PlayerAtom,
+  readOnly_PlayerButtonAtom,
+  readWrite_PlayerButtonAtom,
+};

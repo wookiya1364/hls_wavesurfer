@@ -1,29 +1,28 @@
 "use client";
 
-import { readOnly_PlayerAtom } from "@/jotai/player/player";
+import { readOnly_PlayerAtom, readOnly_PlayerButtonAtom, readWrite_PlayerButtonAtom } from "@/jotai/player/player";
 import { useAtom } from "jotai";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { Button } from "../@component/ui/button";
 
 export default function Controller() {
   const [Player] = useAtom(readOnly_PlayerAtom);
-  const [toggle, setToggle] = useState(false);
-  const handleClickPlayerToggle = useCallback(() => {
-    Player.handleClickPlayerToggle();
+  const [playerButtonStatus] = useAtom(readOnly_PlayerButtonAtom);
+  const handleClickToggle = useCallback(() => {
+    Player.handleClickPlayerButtonToggle();
   }, [Player]);
 
   return (
     <article>
       <Button
         onClick={() => {
-          setToggle(!toggle);
-          handleClickPlayerToggle();
+          handleClickToggle();
         }}
         size={"sm"}
         variant={"outline"}
         className=''
       >
-        {toggle ? "정지" : "재생"}
+        {playerButtonStatus ? "정지" : "재생"}
       </Button>
     </article>
   );

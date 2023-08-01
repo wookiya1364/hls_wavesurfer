@@ -1,3 +1,7 @@
+import SubtitleComponent from "../@component/subtitle";
+import { Column } from "../@component/ui/column";
+import { ListView } from "../@component/ui/listview";
+import { Row } from "../@component/ui/row";
 import VideoComponent from "../@component/video";
 import WaveComponent from "../@component/wave";
 import Controller from "./controller";
@@ -21,7 +25,10 @@ export default async function PlayerHome() {
 
   return (
     <section className='flex flex-col h-screen'>
-      <VideoComponent m3u8Path={m3u8Path}></VideoComponent>
+      <Row variant={"screen"} size={"half"}>
+        <VideoComponent m3u8Path={m3u8Path}></VideoComponent>
+        <SubtitleComponent subtitle={subtitle}></SubtitleComponent>
+      </Row>
       <Controller></Controller>
       <WaveComponent mp3Path={mp3Path} pcm={pcm} subtitle={subtitle}></WaveComponent>
     </section>
