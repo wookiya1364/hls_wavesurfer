@@ -3,6 +3,7 @@ import { UtilityPlayerDTO } from "./dto";
 
 export class UtilityPlayer extends UtilityPlayerDTO {
   private currentWaveTime: number = 0;
+  private debouncePlayerToggleTimer: any = undefined;
   constructor(
     wave: WaveSurfer | undefined = undefined,
     waveCut: WaveSurfer | undefined = undefined,
@@ -41,6 +42,24 @@ export class UtilityPlayer extends UtilityPlayerDTO {
     } else {
       this.getWave().play();
       this.getWaveCut().play();
+      this.getVideo().play();
+    }
+  }
+  /**
+   * 플레이어 시작, 정지 토글
+   * @param null
+   * @returns null
+   */
+  handleClickPlayerButtonToggle() {
+    const currentTime = this.getVideo().currentTime;
+    const isVideoPlaying =
+      currentTime > 0 &&
+      !this.getVideo().paused &&
+      !this.getVideo().ended &&
+      this.getVideo().readyState > this.getVideo().HAVE_CURRENT_DATA;
+    if (isVideoPlaying) {
+      this.getVideo().pause();
+    } else {
       this.getVideo().play();
     }
   }
