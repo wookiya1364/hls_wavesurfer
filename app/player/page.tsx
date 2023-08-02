@@ -17,7 +17,7 @@ export default async function PlayerHome() {
 
   const subtitle: typeSubtitle[] = await getSubtitle(subtitlePath);
   const pcm = await getPCM(pcmPath);
-  const m3u8Path = "/video/sam45_.m3u8";
+  const m3u8Path = "/video/sam45.m3u8";
   const mp3Path = "/mp3/sam45.mp3";
 
   return (
