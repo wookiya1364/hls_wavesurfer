@@ -11,6 +11,9 @@ const columnVariants = cva("flex flex-col", {
     variant: {
       default: "",
       screen: "w-screen",
+      h_20: "h-20vh",
+      h_80: "h-80vh",
+      pad: "p-8",
     },
     size: {
       default: "",
@@ -31,9 +34,9 @@ export interface ColumnProps extends React.ObjectHTMLAttributes<HTMLDivElement>,
 const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
   ({ className, children, variant, size, ...props }, ref) => {
     return (
-      <div className={cn(columnVariants({ variant, size, className }))} ref={ref} {...props}>
+      <article className={cn(columnVariants({ variant, size, className }))} ref={ref} {...props}>
         {children}
-      </div>
+      </article>
     );
   }
 );

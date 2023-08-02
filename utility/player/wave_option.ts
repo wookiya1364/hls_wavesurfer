@@ -19,12 +19,12 @@ export const waveSurferCutWrapper = (ref: HTMLDivElement, mp3Path: string, PCM: 
     barRadius: 5,
     removeMediaElementOnDestroy: false,
     // height: 160,
-    height: 80,
+    height: 30,
     fillParent: false,
     minPxPerSec: 120,
     plugins: [
       TimelinePlugin.create({
-        height: 80,
+        height: 30,
         insertPosition: "beforebegin",
         // timeInterval: 0.2,
         primaryLabelInterval: 5,

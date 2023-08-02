@@ -71,3 +71,10 @@ body {
 #waveCutform ::part(timeline) {
   color: var(--wave-timeline-color);
 }
+.datagrid-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  /* margin-left: 1rem; */
+}

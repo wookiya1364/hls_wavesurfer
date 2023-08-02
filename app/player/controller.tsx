@@ -13,7 +13,7 @@ export default function Controller() {
   }, [Player]);
 
   return (
-    <article>
+    <article className='h-1/5'>
       <Button
         onClick={() => {
           handleClickToggle();

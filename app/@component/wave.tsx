@@ -175,18 +175,16 @@ export default function WaveComponent({
   }, [Player, mp3Path, pcm, regionData]);
 
   return (
-    <article>
-      <div ref={waveLayoutRef} className='flex flex-col relative w-full justify-center bg-dc-edit'>
-        <div
-          id={"waveCutform"}
-          ref={waveCutRef}
-          className='w-full overflow-visible'
-          style={{
-            minHeight: "80px",
-          }}
-        ></div>
-        <div id={"waveform"} ref={waveRef} className='w-full overflow-visible' style={{ minHeight: "102px" }}></div>
-      </div>
-    </article>
+    <div ref={waveLayoutRef} className='flex flex-col relative w-full justify-center bg-dc-edit'>
+      <div
+        id={"waveCutform"}
+        ref={waveCutRef}
+        className='w-full overflow-visible'
+        style={{
+          minHeight: "30px",
+        }}
+      ></div>
+      <div id={"waveform"} ref={waveRef} className='w-full overflow-visible' style={{ minHeight: "102px" }}></div>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useAtom } from "jotai";
 import { Column } from "./ui/column";
 import { ListView } from "./ui/listview";
 

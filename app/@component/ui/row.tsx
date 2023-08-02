@@ -11,6 +11,8 @@ const rowVariants = cva("flex flex-row", {
     variant: {
       default: "",
       screen: "h-screen",
+      h_20: "h-20vh",
+      h_80: "h-80vh",
     },
     size: {
       default: "",
@@ -28,9 +30,9 @@ export interface RowProps extends React.ObjectHTMLAttributes<HTMLDivElement>, Va
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>(({ className, children, variant, size, ...props }, ref) => {
   return (
-    <div className={cn(rowVariants({ variant, size, className }))} ref={ref} {...props}>
+    <article className={cn(rowVariants({ variant, size, className }))} ref={ref} {...props}>
       {children}
-    </div>
+    </article>
   );
 });
 Row.displayName = "Row";
