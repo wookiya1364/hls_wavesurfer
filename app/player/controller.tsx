@@ -18,9 +18,9 @@ export default function Controller() {
         onClick={() => {
           handleClickToggle();
         }}
+        intent={"cyan"}
         size={"sm"}
-        variant={"outline"}
-        className=''
+        className='text-orange-300'
       >
         {playerButtonStatus ? "정지" : "재생"}
       </Button>
